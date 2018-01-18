@@ -16,5 +16,8 @@ def generate_key_pair():
 
 
 def decryption_and_return(filename, keyname):
-    # TODO: see README.md Group B
+    private_key_str = myfile.readfile(keyname)
+    privatekey = RSA.importKey(private_key_str)
+    encrypted_text = ast.literal_eval(myfile.readfile(filename))
+    message = privatekey.decrypt(encrypted_text).decode('utf-8')
     print('see README.md Group B')
