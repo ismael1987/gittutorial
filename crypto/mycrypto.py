@@ -16,5 +16,7 @@ def generate_key_pair():
 
 
 def encrypt_and_write(message, keyname, write_to):
-    # TODO: see README.md Group A
-    print('see README.md Group A')
+    public_key_str = myfile.readfile(keyname)
+    publickey = RSA.importKey(public_key_str)
+    encrypted_text = publickey.encrypt(message.encode('utf-8'), 32)
+    myfile.writefile(write_to, str(encrypted_text))
